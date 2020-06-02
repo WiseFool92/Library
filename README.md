@@ -45,16 +45,20 @@ dotnet tool install -g
 dotnet-script
 ```
 9. Download _[ASP.NET Core](https://dotnet.microsoft.com/download)_ To enable live viewing on a local server
-10. Open project, navigate to the containing folder of the project & Run the code below to confirm build stability
+10. Open project, navigate to the root folder of the project & Run the code below to enable tool connectivity
+```sh
+dotnet restore
+```
+11. Run to confirm build stability
 ```sh
 dotnet run build 
 ```
-11. Within that same containing folder Run _dotnet watch run_ To open a live server w/auto updated viewing
-12. If you want to run tests navigate to the .tests containing folder and enter
+12. Within that same containing folder Run _dotnet watch run_ To open a live server w/auto updated viewing
+13. If you want to run tests navigate to the .tests containing folder and enter
 ```sh
 dotnet test
 ```
-13. Enjoy
+14. Enjoy
 
 ## Implementing MySql Database w/Migrations
 
