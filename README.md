@@ -56,22 +56,58 @@ dotnet test
 ```
 13. Enjoy
 
+## Implementing MySql Database w/Migrations
+
+1. Install MySql Workbench
+2. Configuration choices
+  1. Standalone MySQL Server
+  2. Let type & newtworking setting to defaults
+  3. Use a Legacy Auth method
+  4. Input your set SQL Pword
+  5. Do not select running as a windows service unless you want it to run on startup & always be active in the background. (Setting it as a service does mean that you wont need to run # 3 when you want to use MySql Databases)
+3. Experiences my vary - I need to run MySql Community Installer and reconfigure to connect to the database everytime I bootup my computer. 
+4. Implementing Migrations
+5. In the root folder of your project run
+```sh
+dotnet run build 
+```
+To confirm stability
+
+Then Run
+```sh
+dotnet tool install --global dotnet-ef
+```
+This will install entity core migration tools for database updating
+6. To initialize and connect your migrations run
+```sh
+dotnet ef migrations add Initial
+```
+```sh
+dotnet ef database update
+```
+
 ## Specs
 
 ### Behavior Driven Development Spec List
 #### Library
 |                          Behavior                          | Input  | Output  |
 | :--------------------------------------------------------: | :----: | :-----: |
-| The program | '' | '' |
-| The program | '' | '' |
-| The program | '' | '' |
-| The program | '' | '' |
-| The program | '' | '' |
+| The libraian can create a book listing | 'Tao Te Ching' | 'Tao Te Ching' |
+| The librarian can view the listing | 'View Inventory' | 'Tao Te Ching' |
+| The librarian can update a listing | 'Tao Te Ching: English Publication 1868' | 'Tao Te Ching: English Publication 1868' |
+| The librarian can delete a book listing | 'Click delete next to Tao Te Ching' | 'Removed from list' |
+| The librarian can search for a book by author/title | 'Laozi' | 'Tao Te Ching' |
+| The librarian can add multiple authors to a single book | 'Good Omens By: Neil Gaiman & Terry Prachett' | 'Good Omens By: Neil Gaiman & Terry Prachett' |
+| The patron can check out a book | 'Selects Good Omens' | 'One copy of Good Omens reserved in inventory until it is returned' |
+| The patron can view the number of copies avaliable | 'Good Omens' | '2 copies' |
+| The patron can view their checkout history | 'Frank Dipetro's Account' | 'Tao Te Ching, Good Omens' |
+| The patron can view when the book is due back | 'Tao Te Ching' | '2 Days Overdue' |
+| The librarian can view a list of overdue books | 'Click Book list' | 'Tao Te Ching - 2 Days Overdue' |
 
 ---
 ## Known Bugs
 
-_N/A_ - 5/8/2020
+_N/A_ - 6/2/2020
 
 ## gh-pages
 
