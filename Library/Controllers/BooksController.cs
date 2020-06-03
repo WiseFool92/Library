@@ -27,8 +27,8 @@ namespace Library.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      var userItems = _db.Items.Where(entry => entry.User.Id == currentUser.Id);
-      return View(userItems);
+      var userBooks = _db.Books.Where(entry => entry.User.Id == currentUser.Id);
+      return View(userBooks);
     }
 
     public ActionResult Create()
@@ -42,7 +42,7 @@ namespace Library.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      item.User = currentUser;
+      book.User = currentUser;
       _db.Books.Add(book);
       if (CatalogId != 0)
       {

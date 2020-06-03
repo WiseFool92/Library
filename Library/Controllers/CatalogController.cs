@@ -6,18 +6,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.Controllers
 {
-  public class CatalogsController : Controllers
+  public class CatalogsController : Controller
   {
     private readonly LibraryContext _db;
 
-    public CatalogsController(LibraryContext _db)
+    public CatalogsController(LibraryContext db)
     {
-      _db = _db;
+      _db = db;
     }
 
     public ActionResult Index()
     {
-      List<Catalog> model = _db.Catalog.ToDoList();
+      List<Catalog> model = _db.Catalogs.ToList();
       return View(model);
     }
 
@@ -29,7 +29,7 @@ namespace Library.Controllers
     [HttpPost]
     public ActionResult Create(Catalog catalog)
     {
-      _db.Catalog.Add(catalog);
+      _db.Catalogs.Add(catalog);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -58,7 +58,7 @@ namespace Library.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisCatalog = _db.Catalogs.FirstOrDefault(CatalogsController => catalog.CatalogId == id);
+      var thisCatalog = _db.Catalogs.FirstOrDefault(catalog => catalog.CatalogId == id);
       return View(thisCatalog);
     }
 
