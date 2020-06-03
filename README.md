@@ -72,17 +72,15 @@ dotnet test
 3. Experiences my vary - I need to run MySql Community Installer and reconfigure to connect to the database everytime I bootup my computer. 
 4. Create your database by selecting the triple stacked disc icon that says create new schema in the connected server and name it the same as your root project folder.
 4. Implementing Migrations
-5. In the root folder of your project run
+5. In the root folder of your project run the code below to confirm stability
+
 ```sh
 dotnet run build 
 ```
-To confirm stability
-
-Then Run
+Then Run the code below to install entity core migration tools for database updating
 ```sh
 dotnet tool install --global dotnet-ef
 ```
-This will install entity core migration tools for database updating
 6. To initialize and connect your migrations run
 ```sh
 dotnet ef migrations add Initial
