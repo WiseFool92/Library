@@ -6,9 +6,9 @@
 
 <h2>Search Results:</h2>
 
-@foreach(Catalog rest in Model)
+@foreach(Catalog lookup in Model)
 {
    <li>
-     <h3>@Html.ActionLink($"{rest.Name}", "Details", "Catalogs", new {id = rest.CatalogId})</h3>
+     <h3>@Html.ActionLink($"{lookup.Name}", "Details", "Catalogs", new {id = lookup.CatalogId})</h3>
    </li>
 }
