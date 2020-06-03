@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Library.Models;
+
+<h2>Search Results:</h2>
+
+@foreach(Catalog rest in Model)
+{
+   <li><h3>@Html.ActionLink($"{rest.Name}", "Details", "Catalogs", new {id = rest.CatalogId})</h3></li>
+}

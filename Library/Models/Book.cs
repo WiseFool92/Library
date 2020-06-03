@@ -13,4 +13,33 @@ namespace Library.Models
     public virtual ApplicationUser User { get; set; }
     public ICollection<CatalogBook> Catalogs { get; }
   }
+
+  public enum BookGenre
+  {
+    Fantasy,
+    Fairytale,
+    GraphicNovel,
+    Crime,
+    ActionAdventure,
+    Romance,
+    ScienceFiction,
+    Murder,
+    Horror,
+    Mystery,
+    Poetry,
+    Thriller,
+    Travel,
+    SelfHelp,
+    Memmoir,
+    History,
+    Health,
+    Drama,
+    CookBook,
+    Dictionary,
+    Encyclopedia,
+    Autobiography,
+    Biography,
+    ComicBook,
+    Satire,
+  }
 }
