@@ -71,8 +71,8 @@ dotnet test
   - Do not select running as a windows service unless you want it to run on startup & always be active in the background. (Setting it as a service does mean that you wont need to run # 3 when you want to use MySql Databases)
 3. Experiences my vary - I need to run MySql Community Installer and reconfigure to connect to the database everytime I bootup my computer. 
 4. Create your database by selecting the triple stacked disc icon that says create new schema in the connected server and name it the same as your root project folder.
-4. Implementing Migrations
-5. In the root folder of your project run the code below to confirm stability
+5. Implementing Migrations
+6. In the root folder of your project run the code below to confirm stability
 
 ```sh
 dotnet run build 
@@ -81,7 +81,7 @@ Then Run the code below to install entity core migration tools for database upda
 ```sh
 dotnet tool install --global dotnet-ef
 ```
-6. To initialize and connect your migrations run
+7. To initialize and connect your migrations run
 ```sh
 dotnet ef migrations add Initial
 ```
