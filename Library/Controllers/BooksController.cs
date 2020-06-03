@@ -121,5 +121,25 @@ namespace Library.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [HttpGet("/search")]
+    public ActionResult Search(string search)
+    {
+      List<Book> model = _db.Books.Include(books => books.Catalogs).ToList();
+      Book match = new Book();
+
+      if (!string.IsNullOrEmpty(search))
+      {
+        foreach(Book book in model)
+        {
+          if (book.Title == search)
+          {
+            match = book;
+          }
+        }
+      }
+      List<CatalogBook> matches = match.Catalogs.ToList();
+      return View(matches);
+    }
   }
 }

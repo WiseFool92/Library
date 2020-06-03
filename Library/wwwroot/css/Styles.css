@@ -1,3 +1,6 @@
+body {
+  font: hotpink;
+}
 .nav {
   display: block;
   padding: 10px;
