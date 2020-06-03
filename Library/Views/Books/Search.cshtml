@@ -8,5 +8,7 @@
 
 @foreach(Catalog rest in Model)
 {
-   <li><h3>@Html.ActionLink($"{rest.Name}", "Details", "Catalogs", new {id = rest.CatalogId})</h3></li>
+   <li>
+     <h3>@Html.ActionLink($"{rest.Name}", "Details", "Catalogs", new {id = rest.CatalogId})</h3>
+   </li>
 }

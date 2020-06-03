@@ -30,7 +30,7 @@ namespace Library.Models
     Thriller,
     Travel,
     SelfHelp,
-    Memmoir,
+    Memoir,
     History,
     Health,
     Drama,
