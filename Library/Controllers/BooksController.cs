@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System;
 
 namespace Library.Controllers
 {
@@ -40,6 +41,7 @@ namespace Library.Controllers
     [HttpPost]
     public async Task<ActionResult> Create(Book book, int CatalogId)
     {
+      Console.WriteLine("Hello");
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       book.User = currentUser;
@@ -143,3 +145,6 @@ namespace Library.Controllers
     }
   }
 }
+// thisBook.Catalogs = _db.Catalogs.Where(catalog => catalog.BookCatalog == id).ToList();
+
+// matching catalog genre names of books
